@@ -40,5 +40,6 @@ public class Event {
         this.date = date;
         this.location = location;
         this.seats = seats;
+        this.users = users;
     }
 }
