@@ -32,7 +32,7 @@ public class Event {
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<User> users = new ArrayList<>();
+    private List<User> users;
 
     public Event(String name, String description, LocalDate date, String location, int seats) {
         this.name = name;
@@ -40,6 +40,8 @@ public class Event {
         this.date = date;
         this.location = location;
         this.seats = seats;
-        this.users = users;
     }
+
+
+
 }

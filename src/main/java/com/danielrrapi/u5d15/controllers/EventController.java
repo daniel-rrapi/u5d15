@@ -2,6 +2,7 @@ package com.danielrrapi.u5d15.controllers;
 
 import com.danielrrapi.u5d15.entities.Event;
 import com.danielrrapi.u5d15.entities.User;
+import com.danielrrapi.u5d15.payloads.EventIdDTO;
 import com.danielrrapi.u5d15.payloads.NewEventDTO;
 import com.danielrrapi.u5d15.servicies.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,11 @@ public class EventController {
     public void findByIdAndDelete(@PathVariable long id) {
         eventService.findByAndDeleteEvent(id);
     }
+
+    @PostMapping("/booking")
+    public Event participateToEvent(@RequestBody EventIdDTO payload, @AuthenticationPrincipal User currentUser) {
+        return eventService.addUserToEvent(payload.id(), currentUser);
+    }
+
+
 }
