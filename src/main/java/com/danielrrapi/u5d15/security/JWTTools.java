@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Service
 public class JWTTools {
-    @Value("${jwt.secres}")
+    @Value("${jwt.secret}")
     private String secret;
 
     public String createToken(User user) {

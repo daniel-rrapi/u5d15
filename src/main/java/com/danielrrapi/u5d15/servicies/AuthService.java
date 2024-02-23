@@ -35,7 +35,7 @@ public class AuthService {
         userDAO.findByEmail(payload.email()).ifPresent(user -> {
             throw new BadRequestException("Email " + payload.email() + " is already used");
         });
-        User newUser = new User(payload.name(), payload.surname(), payload.email(), payload.password());
+        User newUser = new User(payload.name(), payload.surname(), payload.email(), bCrypt.encode(payload.password()));
         return userDAO.save(newUser);
     }
 }
